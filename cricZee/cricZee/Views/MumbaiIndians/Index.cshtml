@@ -1,0 +1,41 @@
+﻿@model IEnumerable<cricZee.Models.MumbaiIndian>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h6>Mumbai Indians</h6>
+<img src="~/lib/Mumbaiindians1.jpg" />
+<img src="~/lib/Mumbaiindians2.jpg" />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Player)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerRole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<cricZee.Models.ChennaiSuperKing>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h3>Chennai Super Kings</h3>
+<img src="~/lib/csk1.jpg" />
+<img src="~/lib/csk2.jpg" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Player)
+            </th>
+            <th>
+
+                @Html.DisplayNameFor(model => model.PlayerRole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Player)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayerRole)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<cricZee.Models.RoyalChallengersBanglore>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Royal Challengers Banglore</h1>
+
+<img src="~/lib/rcb1.jpg" />
+<img src="~/lib/rcb2.jpg" />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerRole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<cricZee.Models.TopBowler>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Top Bowlers</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Player)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matches)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wickets)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matches)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wickets)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<cricZee.Quizz>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Quizz</h1>
+
+
+<table class="table">
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Ques)
+                </td>
+                <td>
+                    <input type="radio" id="Option1" name=" @Html.DisplayFor(modelItem => item.Ques)" class="rb" value=" @Html.DisplayFor(modelItem => item.Option1)" />
+                    @Html.DisplayFor(modelItem => item.Option1)
+                </td>
+                <td>
+
+                    <input type="radio" id="Option2" name=" @Html.DisplayFor(modelItem => item.Ques)" class="rb" value=" @Html.DisplayFor(modelItem => item.Option2)" />
+                    @Html.DisplayFor(modelItem => item.Option2)
+                </td>
+                <td>
+                    <input type="radio" id="Option3" name=" @Html.DisplayFor(modelItem => item.Ques)" class="rb" value=" @Html.DisplayFor(modelItem => item.Option3)" />
+
+                    @Html.DisplayFor(modelItem => item.Option3)
+                </td>
+                <td>
+                    <input type="radio" id="Option4" name=" @Html.DisplayFor(modelItem => item.Ques)" class="rb" value=" @Html.DisplayFor(modelItem => item.Option4)" />
+                    @Html.DisplayFor(modelItem => item.Option4)
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <label id="corrections" name=" @Html.DisplayFor(modelItem => item.Ques)" class="rb" style="display:none;color:forestgreen;"><b>@Html.DisplayFor(modelItem => item.Correct)</b></label>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button type="button" id="buttonexam" class="btn-success" onclick="displayresult();">
+    Submit
+</button>
+
+<label id="useranswers"></label>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $("#buttonexam").click(function () {
+
+            $(".rb").show();
+            $(".rb").attr("disabled", true);
+
+        });
+    });
+
+    function displayresult() {
+
+        document.getElementById("useranswers").innerHTML = "";
+        var results = document.getElementsByTagName("input");
+        for (i = 0; i < results.length; i++) {
+
+            if (results[i].type == "radio") {
+                if (results[i].checked) {
+                    document.getElementById("useranswers").innerHTML += "Q" + results[i].name + ")" + results[i].value + "<br/>"
+                }
+            }
+        }
+
+    }
+
+
+
+
+</script>
+
+
+
+
